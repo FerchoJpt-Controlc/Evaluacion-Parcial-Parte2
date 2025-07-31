@@ -4,6 +4,13 @@ def mcd(a,b):
     else:
         return mcd(b,a%b)
 
+def CadenaRepetitiva(palabra,veces):
+    if veces==0:
+        return palabra
+    else:
+        print(palabra)
+        return CadenaRepetitiva(palabra,veces-1)
+
 
 def Menu():
     opcion = 0
@@ -30,7 +37,14 @@ def Menu():
                 print(f"\nEl MCD de {a} y {b} es {resultado}")
 
             elif opcion == 2:
-                print()
+
+                print("\nCADENA REPETITA N VECES")
+
+                palabra=input("\nIngrese un palabra: ")
+                veces=int(input("Ingrese el numero de repeticiones: "))
+                CadenaRepetitiva(palabra,veces)
+
+
             elif opcion == 3:
                 print()
             elif opcion == 4:
