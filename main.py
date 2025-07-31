@@ -12,6 +12,15 @@ def CadenaRepetitiva(palabra,veces):
         return CadenaRepetitiva(palabra,veces-1)
 
 
+def ContarLetra(letra, cadena, indice=0):
+    if indice >= len(cadena):
+        return 0
+    elif cadena[indice] == letra:
+        return 1 + ContarLetra(letra, cadena, indice + 1)
+    else:
+        return ContarLetra(letra, cadena, indice+1)
+
+
 def Menu():
     opcion = 0
 
@@ -31,26 +40,32 @@ def Menu():
             if opcion == 1:
                 print("\nM C D")
 
-                a=int(input("\nIngrese un numero: "))
+                a=int(input("Ingrese un numero: "))
                 b=int(input("Ingrese un numero: "))
                 resultado=mcd(a,b)
-                print(f"\nEl MCD de {a} y {b} es {resultado}")
+                print(f"El MCD de {a} y {b} es {resultado}")
 
             elif opcion == 2:
 
                 print("\nCADENA REPETITA N VECES")
 
-                palabra=input("\nIngrese un palabra: ")
+                palabra=input("Ingrese un palabra: ")
                 veces=int(input("Ingrese el numero de repeticiones: "))
                 CadenaRepetitiva(palabra,veces)
 
 
             elif opcion == 3:
-                print()
+                print("\nCANTIDAD DE LETRAS EN UNA PALABRA")
+
+                cadena=input("Ingrese un palabra: ")
+                letra=input("Ingrese un letra: ")
+                cantidad=ContarLetra(letra,cadena)
+                print(f"La letra -{letra}- aparece -{cantidad} veces- en la palabra -{cadena}-")
+
             elif opcion == 4:
-                print()
+                print("\nCONVERTIR NUMERO DECIMAL A BINARIO")
             elif opcion == 5:
-                print()
+                print("\nCALCULAR CUANTOS DIGITOS TIENE UN NUMERO")
             elif opcion == 6:
                 print("ADIOS...ASTA...PRONTO...")
             else:
