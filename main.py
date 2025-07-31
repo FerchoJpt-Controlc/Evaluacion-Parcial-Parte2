@@ -21,6 +21,18 @@ def ContarLetra(letra, cadena, indice=0):
         return ContarLetra(letra, cadena, indice+1)
 
 
+def DecimalABinario(n):
+    if n==0:
+        return 0
+    else:
+        return DecimalABinario(bin(n)[2:])
+
+def CantidadDeDigitos(n,aux=0):
+    if aux >= len(n):
+        return 0
+    else:
+        return 1 + CantidadDeDigitos(n, aux+1)
+
 def Menu():
     opcion = 0
 
@@ -64,8 +76,21 @@ def Menu():
 
             elif opcion == 4:
                 print("\nCONVERTIR NUMERO DECIMAL A BINARIO")
+
+                n=int(input("Ingrese un numero: "))
+                nbinario=DecimalABinario(n)
+                print(f"El numero {n} convertido a binario es {nbinario}")
+
+                #m=bin(n)[2:]
+                #print(m)
+
             elif opcion == 5:
                 print("\nCALCULAR CUANTOS DIGITOS TIENE UN NUMERO")
+
+                n=input("Ingrese un numero: ")
+                digitos=CantidadDeDigitos(n)
+                print(f"El  numero {n} tiene {digitos} digitos")
+
             elif opcion == 6:
                 print("ADIOS...ASTA...PRONTO...")
             else:
