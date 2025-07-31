@@ -21,11 +21,13 @@ def ContarLetra(letra, cadena, indice=0):
         return ContarLetra(letra, cadena, indice+1)
 
 
-def DecimalABinario(n):
+def DecimalABinario(n, aux):
     if n==0:
         return 0
+    elif aux(n/2)==0:
+        return aux(n%2)
     else:
-        return DecimalABinario(bin(n)[2:])
+        return DecimalABinario(n-1)
 
 def CantidadDeDigitos(n,aux=0):
     if aux >= len(n):
