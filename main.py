@@ -22,12 +22,10 @@ def ContarLetra(letra, cadena, indice=0):
 
 
 def DecimalABinario(n, aux):
-    if n==0:
-        return 0
-    elif aux(n/2)==0:
-        return aux(n%2)
+    if n==1:
+        return 1
     else:
-        return DecimalABinario(n-1)
+        return DecimalABinario(n%2)
 
 def CantidadDeDigitos(n,aux=0):
     if aux >= len(n):
